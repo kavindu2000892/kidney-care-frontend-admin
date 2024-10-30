@@ -1,0 +1,47 @@
+<h2 mat-dialog-title>Update Vital Signs</h2>
+<form [formGroup]="form" (ngSubmit)="update()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="patientId">Patient Id</label>
+      <input type="text" formControlName="patientId" class="form-control" placeholder="patientId" id="patientId">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="date">Date</label>
+      <input type="text" formControlName="date" class="form-control" id="date">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="bloodPressure">Blood Pressure</label>
+      <input type="text" formControlName="bloodPressure" class="form-control" id="bloodPressure">
+    </div>
+    <div class="col-12">
+      <label for="heartRate">Hart Rate</label>
+      <input type="text" formControlName="heartRate" class="form-control" id="heartRate">
+    </div>
+    <div class="col-12">
+      <label for="respiratoryRate">Resporaty Rate</label>
+      <input type="text" formControlName="respiratoryRate" class="form-control" id="respiratoryRate">
+    </div>
+    <div class="col-12">
+      <label for="bloodOxygenSaturation">Blood Oxygen Saturation</label>
+      <input type="text" formControlName="bloodOxygenSaturation" class="form-control" id="bloodOxygenSaturation">
+    </div>
+    <div class="col-12">
+      <label for="bodyTemperature">Body Temperature</label>
+      <input type="text" formControlName="bodyTemperature" class="form-control" id="bodyTemperature">
+    </div>
+    <div class="col-12">
+      <label for="bodyWeight">Body Weight</label>
+      <input type="text" formControlName="bodyWeight" class="form-control" id="bodyWeight">
+    </div>
+    <div class="col-12">
+      <label for="patientSymptoms">Patient Symptms</label>
+      <input type="text" formControlName="patientSymptoms" class="form-control" id="patientSymptoms">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Update Vital Signs</button>
+  </mat-dialog-actions>
+</form>

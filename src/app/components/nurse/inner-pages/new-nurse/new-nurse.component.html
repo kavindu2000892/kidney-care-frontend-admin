@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>New Nurse</h2>
+<form [formGroup]="form" (ngSubmit)="create()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="fullName">Nurse Full Name</label>
+      <input type="text" formControlName="fullName" class="form-control" placeholder="fullName" id="fullName">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="contact">Nurse Contact</label>
+      <input type="text" formControlName="contact" class="form-control" id="contact">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="lisenceNumber">Nurse Lisence Number</label>
+      <input type="text" formControlName="lisenceNumber" class="form-control" id="lisenceNumber">
+    </div>
+    <div class="col-12">
+      <label for="onCallStatus">Nurse On Call Status</label>
+      <input type="text" formControlName="onCallStatus" class="form-control" id="onCallStatus">
+    </div>
+    <div class="col-12">
+      <label for="specialization">Nurse Specialization</label>
+      <input type="text" formControlName="specialization" class="form-control" id="specialization">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Create New Nurse</button>
+  </mat-dialog-actions>
+</form>

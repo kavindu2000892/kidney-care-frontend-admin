@@ -1,0 +1,40 @@
+<h2 mat-dialog-title>New Patient</h2>
+<form [formGroup]="form" (ngSubmit)="create()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="fullName">Patient Full Name</label>
+      <input type="text" formControlName="fullName" class="form-control" placeholder="fullName" id="fullName">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="birthDay">Patient Birth Day</label>
+      <input type="text" formControlName="birthDay" class="form-control" id="birthDay">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="gender">Patient Gender</label>
+      <input type="text" formControlName="gender" class="form-control" id="gender">
+    </div>
+    <div class="col-12">
+      <label for="contact">Patient Contact</label>
+      <input type="text" formControlName="contact" class="form-control" id="contact">
+    </div>
+    <div class="col-12">
+      <label for="diagnosisType">Patient Diagnosis Type</label>
+      <input type="text" formControlName="diagnosisType" class="form-control" id="diagnosisType">
+    </div>
+    <div class="col-12">
+      <label for="surgicalHistory">PatientSurgical History</label>
+      <input type="text" formControlName="surgicalHistory" class="form-control" id="surgicalHistory">
+    </div>
+    <div class="col-12">
+      <label for="allergies">Patient Allergies</label>
+      <input type="text" formControlName="allergies" class="form-control" id="allergies">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Create New Patient</button>
+  </mat-dialog-actions>
+</form>
+

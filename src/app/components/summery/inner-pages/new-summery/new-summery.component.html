@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>New Summery Report</h2>
+<form [formGroup]="form" (ngSubmit)="create()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="patientId">Patient Id</label>
+      <input type="text" formControlName="patientId" class="form-control" placeholder="patientId" id="patientId">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="reportDate">Report Date</label>
+      <input type="text" formControlName="reportDate" class="form-control" id="reportDate">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="doctorInCharge">Doctor In Charge</label>
+      <input type="text" formControlName="doctorInCharge" class="form-control" id="doctorInCharge">
+    </div>
+    <div class="col-12">
+      <label for="treatmentHistory">Treatment History</label>
+      <input type="text" formControlName="treatmentHistory" class="form-control" id="treatmentHistory">
+    </div>
+    <div class="col-12">
+      <label for="dialysisSessionHistory">Dialysis Session History</label>
+      <input type="text" formControlName="dialysisSessionHistory" class="form-control" id="dialysisSessionHistory">
+    </div>
+    <div class="col-12">
+      <label for="symptms">Symptms</label>
+      <input type="text" formControlName="symptms" class="form-control" id="symptms">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Create New Summery Report</button>
+  </mat-dialog-actions>
+</form>

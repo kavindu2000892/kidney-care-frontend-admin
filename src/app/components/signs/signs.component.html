@@ -1,0 +1,127 @@
+<div class="outer" style="margin: 20px 0">
+
+  <div class="container">
+    <hr>
+    <h1>Patient Vital Signs Management</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-4">
+        <form [formGroup]="searchForm">
+          <input type="search" formControlName="text" name="" id="" class="form-control" placeholder="search here">
+        </form>
+      </div>
+      <div class="col-4">
+        &nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="openNewSignsForm()">+ New Vital Signs</button>
+      </div>
+      <br>
+      <div class="col-12" style="margin-top: 50px">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#Record Id</th>
+            <th>Patient Id</th>
+            <th>Date</th>
+            <th>Blood Pressure</th>
+            <th>Heart Rate</th>
+            <th>Respaioty Rate</th>
+            <th>Blood Oxygen Saturation</th>
+            <th>Body Temperature</th>
+            <th>Body Weight</th>
+            <th>Patient Symptoms</th>
+            <th>Tools</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of dataList">
+            <td>
+              <div class="context">
+                {{ item?.recordId }} &nbsp;
+                <mat-icon (click)="copyText(item?.recordId)">content_copy</mat-icon>
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.patientId }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.date }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.bloodPressure }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.heartRate }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.respiratoryRate }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.bloodOxygenSaturation }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.bodyTemperature }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.bodyWeight }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.patientSymptoms }}
+
+              </div>
+            </td>
+
+            <td>
+              <div class="context">
+                <button color="warn" mat-icon-button matTooltip="Delete" (click)="deleteConfirm(item)"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>delete_sweep</mat-icon>
+                </button>
+                <button (click)="openUpdateSignsForm(item)" color="primary" mat-icon-button matTooltip="Update"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <mat-paginator
+        [length]="count"
+        [pageIndex]="page"
+        [pageSize]="size"
+        [pageSizeOptions]="[1,10,20,30,40,50,60,70,80,90,100]"
+        (page)="getServerData($event)"
+      >
+
+      </mat-paginator>
+
+    </div>
+
+  </div>
+</div>

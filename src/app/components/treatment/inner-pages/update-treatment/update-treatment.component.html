@@ -1,0 +1,43 @@
+<h2 mat-dialog-title>Update Treatment</h2>
+<form [formGroup]="form" (ngSubmit)="update()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="patientId">Patient Id</label>
+      <input type="text" formControlName="patientId" class="form-control" placeholder="patientId" id="patientId">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="fullName">Full Name</label>
+      <input type="text" formControlName="fullName" class="form-control" id="fullName">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="primaryDiagnosis">Primary Diagnosis</label>
+      <input type="text" formControlName="primaryDiagnosis" class="form-control" id="primaryDiagnosis">
+    </div>
+    <div class="col-12">
+      <label for="secondaryDiagnosis">Secondary Diagnosis</label>
+      <input type="text" formControlName="secondaryDiagnosis" class="form-control" id="secondaryDiagnosis">
+    </div>
+    <div class="col-12">
+      <label for="frequencyOfDialysis">Frequency of Dialysis</label>
+      <input type="text" formControlName="frequencyOfDialysis" class="form-control" id="frequencyOfDialysis">
+    </div>
+    <div class="col-12">
+      <label for="dialyzerType">Dialyzer Type</label>
+      <input type="text" formControlName="dialyzerType" class="form-control" id="dialyzerType">
+    </div>
+    <div class="col-12">
+      <label for="preDialysisMedications">Pre Dialysis Medications</label>
+      <input type="text" formControlName="preDialysisMedications" class="form-control" id="preDialysisMedications">
+    </div>
+    <div class="col-12">
+      <label for="postDialysisMedications">Post Dialysis Medications</label>
+      <input type="text" formControlName="postDialysisMedications" class="form-control" id="postDialysisMedications">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Update Treatment</button>
+  </mat-dialog-actions>
+</form>

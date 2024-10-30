@@ -1,0 +1,99 @@
+<div class="outer" style="margin: 20px 0">
+
+  <div class="container">
+    <hr>
+    <h1>Nurse Management</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-4">
+        <form [formGroup]="searchForm">
+          <input type="search" formControlName="text" name="" id="" class="form-control" placeholder="search here">
+        </form>
+      </div>
+      <div class="col-4">
+        &nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="openNewNurseForm()">+ New Nurse</button>
+      </div>
+      <br>
+      <div class="col-12" style="margin-top: 50px">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#Nurse Id</th>
+            <th>Full Name</th>
+            <th>Contact</th>
+            <th>Lisence Number</th>
+            <th>On Call Status</th>
+            <th>Specialization</th>
+            <th>Tools</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of dataList">
+            <td>
+              <div class="context">
+                {{ item?.nurseId }} &nbsp;
+                <mat-icon (click)="copyText(item?.nurseId)">content_copy</mat-icon>
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.fullName }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.contact }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.lisenceNumber }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.onCallStatus }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.specialization }}
+
+              </div>
+            </td>
+
+            <td>
+              <div class="context">
+                <button color="warn" mat-icon-button matTooltip="Delete" (click)="deleteConfirm(item)"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>delete_sweep</mat-icon>
+                </button>
+                <button (click)="openUpdateNurseForm(item)" color="primary" mat-icon-button matTooltip="Update"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <mat-paginator
+        [length]="count"
+        [pageIndex]="page"
+        [pageSize]="size"
+        [pageSizeOptions]="[1,10,20,30,40,50,60,70,80,90,100]"
+        (page)="getServerData($event)"
+      >
+
+      </mat-paginator>
+
+    </div>
+
+  </div>
+</div>

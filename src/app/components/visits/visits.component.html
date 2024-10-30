@@ -1,0 +1,99 @@
+<div class="outer" style="margin: 20px 0">
+
+  <div class="container">
+    <hr>
+    <h1>Hemodialysis Visits Management</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-4">
+        <form [formGroup]="searchForm">
+          <input type="search" formControlName="text" name="" id="" class="form-control" placeholder="search here">
+        </form>
+      </div>
+      <div class="col-4">
+        &nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="openNewVisitsForm()">+ New Visits</button>
+      </div>
+      <br>
+      <div class="col-12" style="margin-top: 50px">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#Visist Id</th>
+            <th>Patient Id</th>
+            <th>Pre Dialysis Assesments</th>
+            <th>Post Dialysis Assesments</th>
+            <th>Actions</th>
+            <th>Health Care Team</th>
+            <th>Tools</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of dataList">
+            <td>
+              <div class="context">
+                {{ item?.visitId }} &nbsp;
+                <mat-icon (click)="copyText(item?.visitId)">content_copy</mat-icon>
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.patientId }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.preDialysisAssesments }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.postDialysisAssesments }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.actions }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.healthcareTeam }}
+
+              </div>
+            </td>
+
+            <td>
+              <div class="context">
+                <button color="warn" mat-icon-button matTooltip="Delete" (click)="deleteConfirm(item)"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>delete_sweep</mat-icon>
+                </button>
+                <button (click)="openUpdateVisitsForm(item)" color="primary" mat-icon-button matTooltip="Update"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <mat-paginator
+        [length]="count"
+        [pageIndex]="page"
+        [pageSize]="size"
+        [pageSizeOptions]="[1,10,20,30,40,50,60,70,80,90,100]"
+        (page)="getServerData($event)"
+      >
+
+      </mat-paginator>
+
+    </div>
+
+  </div>
+</div>

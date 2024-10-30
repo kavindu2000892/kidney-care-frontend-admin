@@ -1,0 +1,16 @@
+<div class="outer" style="margin: 20px 0">
+
+  <div class="container">
+    <hr>
+    <h1>Signup </h1>
+    <hr>
+
+    <form [formGroup]="form" (ngSubmit)="signup()">
+      <input type="email" formControlName="email" placeholder="email">&nbsp;
+      <input type="text" formControlName="displayName" placeholder="display Name">&nbsp;
+      <input type="password" formControlName="password" placeholder="Password">&nbsp;
+      <input type="submit" value="Register Now">
+    </form>
+  </div>
+</div>
+

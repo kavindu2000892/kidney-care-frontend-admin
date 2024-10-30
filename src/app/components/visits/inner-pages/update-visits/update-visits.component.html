@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>Update Hemodialysis Visits</h2>
+<form [formGroup]="form" (ngSubmit)="update()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="patientId">Patient Id</label>
+      <input type="text" formControlName="patientId" class="form-control" placeholder="patientId" id="patientId">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="preDialysisAssesments">Pre Dialysis Assesments</label>
+      <input type="text" formControlName="preDialysisAssesments" class="form-control" id="preDialysisAssesments">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="postDialysisAssesments">Post Dialysis Assesments</label>
+      <input type="text" formControlName="postDialysisAssesments" class="form-control" id="postDialysisAssesments">
+    </div>
+    <div class="col-12">
+      <label for="actions">Actions </label>
+      <input type="text" formControlName="actions" class="form-control" id="actions">
+    </div>
+    <div class="col-12">
+      <label for="healthcareTeam">Health Care Team</label>
+      <input type="text" formControlName="healthcareTeam" class="form-control" id="healthcareTeam">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Update Visits</button>
+  </mat-dialog-actions>
+</form>

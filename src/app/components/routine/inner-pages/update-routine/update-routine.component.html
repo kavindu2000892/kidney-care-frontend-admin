@@ -1,0 +1,35 @@
+<h2 mat-dialog-title>Update Routine</h2>
+<form [formGroup]="form" (ngSubmit)="update()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="patientId">Patient Id</label>
+      <input type="text" formControlName="patientId" class="form-control" placeholder="patientId" id="patientId">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="date">Date</label>
+      <input type="text" formControlName="date" class="form-control" id="date">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="duration">Duration</label>
+      <input type="text" formControlName="duration" class="form-control" id="duration">
+    </div>
+    <div class="col-12">
+      <label for="dialysisSite">Dialysis Site</label>
+      <input type="text" formControlName="dialysisSite" class="form-control" id="dialysisSite">
+    </div>
+    <div class="col-12">
+      <label for="daialysisMachineSetting">Machine Setting</label>
+      <input type="text" daialysisMachineSetting="specialization" class="form-control" id="daialysisMachineSetting">
+    </div>
+    <div class="col-12">
+      <label for="treatmentAdjustment">Treatment Adjustment</label>
+      <input type="text" formControlName="treatmentAdjustment" class="form-control" id="treatmentAdjustment">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Update Routine</button>
+  </mat-dialog-actions>
+</form>

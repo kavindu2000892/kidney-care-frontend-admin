@@ -1,0 +1,31 @@
+<h2 mat-dialog-title>New Upcoming Sessions</h2>
+<form [formGroup]="form" (ngSubmit)="create()">
+  <mat-dialog-content class="mat-typography">
+    <div class="col-12">
+      <label for="patientId">Patient Id</label>
+      <input type="text" formControlName="patientId" class="form-control" placeholder="patientId" id="patientId">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="date">Date</label>
+      <input type="text" formControlName="date" class="form-control" id="date">
+    </div>
+    <br>
+    <div class="col-12">
+      <label for="time">Time</label>
+      <input type="text" formControlName="time" class="form-control" id="time">
+    </div>
+    <div class="col-12">
+      <label for="sessionStatus">Session Status</label>
+      <input type="text" formControlName="sessionStatus" class="form-control" id="sessionStatus">
+    </div>
+    <div class="col-12">
+      <label for="assignedBed">Assigned Bed</label>
+      <input type="text" formControlName="assignedBed" class="form-control" id="assignedBed">
+    </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-raised-button (click)="close()">Cancel</button>
+    <button mat-raised-button type="submit" color="primary">Create New Upcoming Session</button>
+  </mat-dialog-actions>
+</form>

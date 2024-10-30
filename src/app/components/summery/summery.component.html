@@ -1,0 +1,141 @@
+<div class="outer" style="margin: 20px 0">
+
+  <div class="container">
+    <hr>
+    <h1>Clinical Summery Report Management</h1>
+    <hr>
+
+    <div class="row">
+      <div class="col-4">
+        <form [formGroup]="searchForm">
+          <input type="search" formControlName="text" name="" id="" class="form-control" placeholder="search here">
+        </form>
+      </div>
+      <div class="col-4">
+        &nbsp;&nbsp;
+        <button class="btn btn-primary" (click)="openNewSummeryForm()">+ New Summery Report</button>
+      </div>
+      <br>
+      <div class="col-12" style="margin-top: 50px">
+        <table class="table">
+          <thead>
+          <tr>
+            <th>#Report Id</th>
+            <th>Patient Id</th>
+            <th>Report Date</th>
+            <th>Doctor In Charge</th>
+            <th>Treatment History</th>
+            <th>Dialysis Session History</th>
+            <th>Symptms</th>
+            <th>File Share</th>
+            <th>Tools</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of dataList">
+            <td>
+              <div class="context">
+                {{ item?.reportId }} &nbsp;
+                <mat-icon (click)="copyText(item?.reportId)">content_copy</mat-icon>
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.patientId }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.reportDate }}
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.doctorInCharge }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.treatmentHistory }}
+
+              </div>
+            </td>
+            <td>
+              <div class="context">
+                {{ item?.dialysisSessionHistory }}
+
+              </div>
+            </td>
+
+            <td>
+              <div class="context">
+                {{ item?.symptms }}
+
+              </div>
+            </td>
+
+
+
+
+            <td>
+              <div class="context">
+
+
+                <label class="">Report Id</label> <input class="form-control" type="text" [(ngModel)]="userName"/>
+                <input class="form-control" type="file"
+                       (change)="onFileSelected($event)"
+                />
+                <button (click)="save()" class="btn btn-primary">Save</button>
+
+                <div class="row">
+                  <div class="col-sm-6 col-md-3" *ngFor="let pdf of pdfList">
+                    <div class="card text-center" style="width: 200px;height: 200px;margin-bottom: 50px;">
+                      <img class="card-img-top rounded-circle" style="width: 100%;height: 100%;object-fit: cover;" [src]="'data:image/png;base64,'+pdf.displayPicture" alt="Title" />
+                      <div class="card-body">
+                        <h4 class="card-title">{{pdf.userName}}</h4>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+
+
+                </div>
+            </td>
+
+
+
+
+
+            <td>
+              <div class="context">
+                <button color="warn" mat-icon-button matTooltip="Delete" (click)="deleteConfirm(item)"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>delete_sweep</mat-icon>
+                </button>
+                <button (click)="openUpdateSummeryForm(item)" color="primary" mat-icon-button matTooltip="Update"
+                        aria-label="Example icon-button with a heart icon">
+                  <mat-icon>edit</mat-icon>
+                </button>
+              </div>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <mat-paginator
+        [length]="count"
+        [pageIndex]="page"
+        [pageSize]="size"
+        [pageSizeOptions]="[1,10,20,30,40,50,60,70,80,90,100]"
+        (page)="getServerData($event)"
+      >
+
+      </mat-paginator>
+
+    </div>
+
+  </div>
+</div>
